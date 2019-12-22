@@ -13,20 +13,16 @@ namespace SqlServerSample
     {
         static void Main(string[] args)
         {
-            try
-            { 
-                using (IDbConnection connection = new SqlConnection(@"Server=.\SQLEXPRESS;Database=main_db_1;Trusted_Connection=True;")){
-                    Console.WriteLine("you connected");
-                    var output = connection.Query<string>($"select firstname from players where id = 1");
-                    var output2 = connection.Query<Player>($"select * from players").ToList();
-                    //connection.Execute($"update players set jersey = 3 where id = 1");
-                          
-                }
-            }
-            catch(Exception e)
+
+            List<Player> myPlayers = new List<Player>();
+            myPlayers = MyDataBase.GetAllPlayers();
+            foreach (var item in myPlayers)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine($" first name = {item.FirstName} last name = {item.LastName}\n");
             }
+                Console.ReadLine();
+
+            
         }
     }
 }
