@@ -9,7 +9,7 @@ using Dapper;
 
 namespace MyLeague
 {
-    class MyDataBase
+    public static class MyDataBase
     {
         
         public static List<Player> GetAllPlayers ()
