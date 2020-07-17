@@ -22,7 +22,7 @@ namespace MyLeagueAPI.Controllers
         {
             players = MyDataBase.GetAllPlayers();
             
-            return players;
+            return players; 
         }
 
         // GET: api/Players
